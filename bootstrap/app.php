@@ -18,11 +18,11 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 | application as an "IoC" container and router for this framework.
 |
 */
-
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
+$app->configure('swagger-lume');
 $app->withFacades();
 $app->withEloquent();
 
@@ -89,7 +89,7 @@ $app->middleware([
 | totally optional, so you are not required to uncomment this line.
 |
 */
-
+$app->register(\SwaggerLume\ServiceProvider::class);
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
@@ -104,7 +104,6 @@ $app->middleware([
 | can respond to, as well as the controllers that may handle them.
 |
 */
-
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {

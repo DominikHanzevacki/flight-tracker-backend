@@ -1,0 +1,56 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Flight Tracker API",
+        "description": "API Documentation for the Flight Tracker",
+        "contact": {
+            "name": "Support Team",
+            "email": "support@example.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/countries": {
+            "get": {
+                "summary": "Get all countries",
+                "operationId": "c184f9fbbc6941062e3e6ba9b1b4daf4",
+                "responses": {
+                    "200": {
+                        "description": "A list of countries",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Country"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Country": {
+                "properties": {
+                    "id": {
+                        "description": "Country ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Country name",
+                        "type": "string"
+                    },
+                    "code": {
+                        "description": "Country code",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
