@@ -10,8 +10,193 @@
         "version": "1.0"
     },
     "paths": {
+        "/api/airlines": {
+            "get": {
+                "tags": [
+                    "Airline"
+                ],
+                "summary": "Get all airlines",
+                "operationId": "07471bcf7a7ca3dc8275246b6b2bc2e6",
+                "responses": {
+                    "200": {
+                        "description": "A list of airlines",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Airline"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Airline"
+                ],
+                "summary": "Create a new airline",
+                "operationId": "3cedaff901b3e84c5d548865fc7d4fc4",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "country_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "maxLength": 100
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Airline created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airline"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/airlines/{id}": {
+            "get": {
+                "tags": [
+                    "Airline"
+                ],
+                "summary": "Get airline by ID",
+                "operationId": "8d5f139e45cc33d52007eb44f2d66bc1",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Airline details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airline"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Airline not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Airline"
+                ],
+                "summary": "Update an existing airline",
+                "operationId": "d2bac1293970be65e85bb0ea0df929c6",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "maxLength": 100
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Airline updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airline"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "404": {
+                        "description": "Airline not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Airline"
+                ],
+                "summary": "Delete an airline",
+                "operationId": "b618b3fccc605214947f2130e585ea31",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Airline deleted successfully"
+                    },
+                    "404": {
+                        "description": "Airline not found"
+                    }
+                }
+            }
+        },
         "/api/countries": {
             "get": {
+                "tags": [
+                    "Country"
+                ],
                 "summary": "Get all countries",
                 "operationId": "c184f9fbbc6941062e3e6ba9b1b4daf4",
                 "responses": {
@@ -34,6 +219,32 @@
     },
     "components": {
         "schemas": {
+            "Airline": {
+                "properties": {
+                    "id": {
+                        "description": "Airline ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Airline name",
+                        "type": "string"
+                    },
+                    "country": {
+                        "properties": {
+                            "name": {
+                                "description": "Country name",
+                                "type": "string"
+                            },
+                            "code": {
+                                "description": "Country code",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
             "Country": {
                 "properties": {
                     "id": {
@@ -52,5 +263,15 @@
                 "type": "object"
             }
         }
-    }
+    },
+    "tags": [
+        {
+            "name": "Airline",
+            "description": "Airline"
+        },
+        {
+            "name": "Country",
+            "description": "Country"
+        }
+    ]
 }

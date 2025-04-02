@@ -220,7 +220,7 @@ return [
     |--------------------------------------------------------------------------
      */
     'constants' => [
-        'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'https://flight-tracker-be-production.up.railway.app'),
+        'SWAGGER_LUME_CONST_HOST' => env('SWAGGER_LUME_CONST_HOST', 'http://my-default-host.com'),
     ],
 
     /*
@@ -228,6 +228,5 @@ return [
     | Force assets to be loaded over HTTPS (Solves mixed content errors when application is behind a load balancer.)
     |--------------------------------------------------------------------------
      */
-    'force_https' => env('SWAGGER_LUME_FORCE_HTTPS', true),
-    'schemes' => ['https'],
+    'force_https' => env('SWAGGER_LUME_FORCE_HTTPS', false),
 ];

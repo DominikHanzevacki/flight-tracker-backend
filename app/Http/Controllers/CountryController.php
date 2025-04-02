@@ -13,6 +13,7 @@ class CountryController extends Controller
      * @OA\Get(
      *     path="/api/countries",
      *     summary="Get all countries",
+     *      tags={"Country"},
      *     @OA\Response(
      *         response=200,
      *         description="A list of countries",

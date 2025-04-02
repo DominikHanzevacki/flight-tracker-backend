@@ -10,4 +10,9 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('countries', 'CountryController@getAllCountries');
+    $router->get('airlines', 'AirlineController@getAllAirlines');
+    $router->get('airlines/{id}', 'AirlineController@getAirlineById');
+    $router->post('airlines', 'AirlineController@createAirline');
+    $router->put('airlines/{id}', 'AirlineController@updateAirline');
+    $router->delete('airlines/{id}', 'AirlineController@deleteAirline');
 });
