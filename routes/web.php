@@ -15,4 +15,9 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('airlines', 'AirlineController@createAirline');
     $router->put('airlines/{id}', 'AirlineController@updateAirline');
     $router->delete('airlines/{id}', 'AirlineController@deleteAirline');
+    $router->get('airports', 'AirportController@getAllAirports');
+    $router->get('airports/{id}', 'AirportController@getAirportById');
+    $router->post('airports', 'AirportController@createAirport');
+    $router->put('airports/{id}', 'AirportController@updateAirport');
+    $router->delete('airports/{id}', 'AirportController@deleteAirport');
 });
