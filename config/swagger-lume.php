@@ -229,4 +229,5 @@ return [
     |--------------------------------------------------------------------------
      */
     'force_https' => env('SWAGGER_LUME_FORCE_HTTPS', true),
+    'schemes' => ['https'],
 ];
