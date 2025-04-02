@@ -192,6 +192,231 @@
                 }
             }
         },
+        "/api/airports": {
+            "get": {
+                "tags": [
+                    "Airport"
+                ],
+                "summary": "Get all airports",
+                "operationId": "e80450e75da4f6537ebf0f43710f1752",
+                "responses": {
+                    "200": {
+                        "description": "List of airports",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Airport"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Airport"
+                ],
+                "summary": "Create a new airport",
+                "operationId": "bd5015121b7c1038db0938aec494ed08",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "country_id",
+                                    "position"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "maxLength": 100
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    },
+                                    "position": {
+                                        "required": [
+                                            "latitude",
+                                            "longitude"
+                                        ],
+                                        "properties": {
+                                            "latitude": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "longitude": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "airlines": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Airport created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airport"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/airports/{id}": {
+            "get": {
+                "tags": [
+                    "Airport"
+                ],
+                "summary": "Get airport by ID",
+                "operationId": "047223e128b258bd88b717ae12b74863",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Airport details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airport"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Airport not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Airport"
+                ],
+                "summary": "Update an existing airport",
+                "operationId": "620651bf37676ecbd75273e8c3a97fb0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "maxLength": 100
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    },
+                                    "position": {
+                                        "properties": {
+                                            "latitude": {
+                                                "type": "number",
+                                                "format": "float"
+                                            },
+                                            "longitude": {
+                                                "type": "number",
+                                                "format": "float"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "airlines": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Airport updated successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Airport"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Validation error"
+                    },
+                    "404": {
+                        "description": "Airport not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Airport"
+                ],
+                "summary": "Delete an airport",
+                "operationId": "bb39264c97c6ae55b298fe1f78775a7f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Airport deleted successfully"
+                    },
+                    "404": {
+                        "description": "Airport not found"
+                    }
+                }
+            }
+        },
         "/api/countries": {
             "get": {
                 "tags": [
@@ -245,6 +470,52 @@
                 },
                 "type": "object"
             },
+            "Airport": {
+                "properties": {
+                    "id": {
+                        "description": "Airport ID",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "Airport name",
+                        "type": "string"
+                    },
+                    "country": {
+                        "properties": {
+                            "name": {
+                                "description": "Country name",
+                                "type": "string"
+                            },
+                            "code": {
+                                "description": "Country code",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "position": {
+                        "properties": {
+                            "latitude": {
+                                "type": "number",
+                                "format": "float"
+                            },
+                            "longitude": {
+                                "type": "number",
+                                "format": "float"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "airlines": {
+                        "description": "List of airlines associated with the airport",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Airline"
+                        }
+                    }
+                },
+                "type": "object"
+            },
             "Country": {
                 "properties": {
                     "id": {
@@ -268,6 +539,10 @@
         {
             "name": "Airline",
             "description": "Airline"
+        },
+        {
+            "name": "Airport",
+            "description": "Airport"
         },
         {
             "name": "Country",
