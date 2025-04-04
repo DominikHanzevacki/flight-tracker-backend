@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('airlines', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100)->nullable();
+            $table->string('name', 100);
             $table->unsignedBigInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries');
         });

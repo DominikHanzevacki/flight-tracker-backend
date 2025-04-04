@@ -34,6 +34,7 @@ class AirlineController extends Controller
                     'id' => $airline->id,
                     'name' => $airline->name,
                     'country' => [
+                        'id' => $airline->country->id,
                         'name' => $airline->country->name,
                         'code' => $airline->country->code,
                     ],
