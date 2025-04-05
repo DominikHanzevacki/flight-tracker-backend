@@ -10,11 +10,12 @@ class AirlineSeeder extends Seeder
     public function run(): void
     {
         $airlines = [
-            ['name' => 'American Airlines', 'country_id' => 1],
-            ['name' => 'British Airways', 'country_id' => 2],
-            ['name' => 'Air France', 'country_id' => 3],
-            ['name' => 'Lufthansa', 'country_id' => 4],
-            ['name' => 'Japan Airlines', 'country_id' => 5],
+            ['name' => 'Croatian Airlines', 'country_id' => 1],
+            ['name' => 'American Airlines', 'country_id' => 2],
+            ['name' => 'British Airways', 'country_id' => 3],
+            ['name' => 'Air France', 'country_id' => 4],
+            ['name' => 'Lufthansa', 'country_id' => 5],
+            ['name' => 'Japan Airlines', 'country_id' => 6],
         ];
 
         foreach ($airlines as $airline) {

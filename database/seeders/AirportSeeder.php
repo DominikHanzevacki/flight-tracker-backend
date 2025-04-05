@@ -11,47 +11,83 @@ class AirportSeeder extends Seeder
     {
         $airports = [
             [
-                'name' => 'Los Angeles International Airport',
+                'name' => 'Brac Airport',
                 'country_id' => 1,
                 'position' => [
-                    'latitude' => 33.9416,
-                    'longitude' => -118.4085,
+                    'latitude' => 43.2858330800,
+                    'longitude' => 16.6797220300,
                 ],
                 'airlines' => [1, 2]
             ],
             [
-                'name' => 'Heathrow Airport',
-                'country_id' => 2,
+                'name' => 'Dubrovnik Airport',
+                'country_id' => 1,
                 'position' => [
-                    'latitude' => 33.9416,
-                    'longitude' => -118.4085,
-                ],
-                'airlines' => [2, 3]
-            ],
-            [
-                'name' => 'Charles de Gaulle Airport',
-                'country_id' => 3,
-                'position' => [
-                    'latitude' => 49.0097,
-                    'longitude' => 2.5479,
+                    'latitude' => 42.5622383800,
+                    'longitude' => 18.2657594100,
                 ],
                 'airlines' => [1, 3]
             ],
             [
-                'name' => 'Frankfurt Airport',
-                'country_id' => 4,
+                'name' => 'Losinj Airport',
+                'country_id' => 1,
                 'position' => [
-                    'latitude' => 50.0379,
-                    'longitude' => 8.5622,
+                    'latitude' => 44.5655036300,
+                    'longitude' => 14.3979867300,
+                ],
+                'airlines' => [1, 3]
+            ],
+            [
+                'name' => 'Osijek Airport',
+                'country_id' => 1,
+                'position' => [
+                    'latitude' => 45.4589001100,
+                    'longitude' => 18.8232948400,
                 ],
                 'airlines' => [1, 2, 3]
             ],
             [
-                'name' => 'Tokyo Haneda Airport',
-                'country_id' => 5,
+                'name' => 'Pula Airport',
+                'country_id' => 1,
                 'position' => [
-                    'latitude' => 35.5494,
-                    'longitude' => 139.7798,
+                    'latitude' => 44.8926854400,
+                    'longitude' => 13.9166197000,
+                ],
+                'airlines' => [1]
+            ],
+            [
+                'name' => 'Rijeka Airport',
+                'country_id' => 1,
+                'position' => [
+                    'latitude' => 45.2198913100,
+                    'longitude' => 14.5674886900,
+                ],
+                'airlines' => [1]
+            ],
+            [
+                'name' => 'Split Airport',
+                'country_id' => 1,
+                'position' => [
+                    'latitude' => 43.5385091500,
+                    'longitude' => 16.2985301000,
+                ],
+                'airlines' => [1]
+            ],
+            [
+                'name' => 'Zadar Airport',
+                'country_id' => 1,
+                'position' => [
+                    'latitude' => 44.0944431800,
+                    'longitude' => 15.3528740800,
+                ],
+                'airlines' => [1]
+            ],
+            [
+                'name' => '	Zagreb Airport',
+                'country_id' => 1,
+                'position' => [
+                    'latitude' => 45.7383556500,
+                    'longitude' => 16.0606726300,
                 ],
                 'airlines' => [1]
             ],

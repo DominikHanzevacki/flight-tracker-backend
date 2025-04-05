@@ -12,8 +12,8 @@ return new class extends Migration {
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->decimal('latitude', 10, 7);
-            $table->decimal('longitude', 10, 7);
+            $table->decimal('latitude', 12, 10);
+            $table->decimal('longitude', 12, 10);
         });
     }
 
