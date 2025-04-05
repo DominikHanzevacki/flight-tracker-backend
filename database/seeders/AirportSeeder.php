@@ -11,7 +11,7 @@ class AirportSeeder extends Seeder
     {
         $airports = [
             [
-                'name' => 'Los Angeles International Airport.php',
+                'name' => 'Los Angeles International Airport',
                 'country_id' => 1,
                 'position' => [
                     'latitude' => 33.9416,
@@ -20,7 +20,7 @@ class AirportSeeder extends Seeder
                 'airlines' => [1, 2]
             ],
             [
-                'name' => 'Heathrow Airport.php',
+                'name' => 'Heathrow Airport',
                 'country_id' => 2,
                 'position' => [
                     'latitude' => 33.9416,
@@ -29,7 +29,7 @@ class AirportSeeder extends Seeder
                 'airlines' => [2, 3]
             ],
             [
-                'name' => 'Charles de Gaulle Airport.php',
+                'name' => 'Charles de Gaulle Airport',
                 'country_id' => 3,
                 'position' => [
                     'latitude' => 49.0097,
@@ -38,7 +38,7 @@ class AirportSeeder extends Seeder
                 'airlines' => [1, 3]
             ],
             [
-                'name' => 'Frankfurt Airport.php',
+                'name' => 'Frankfurt Airport',
                 'country_id' => 4,
                 'position' => [
                     'latitude' => 50.0379,
@@ -47,7 +47,7 @@ class AirportSeeder extends Seeder
                 'airlines' => [1, 2, 3]
             ],
             [
-                'name' => 'Tokyo Haneda Airport.php',
+                'name' => 'Tokyo Haneda Airport',
                 'country_id' => 5,
                 'position' => [
                     'latitude' => 35.5494,
@@ -82,7 +82,7 @@ class AirportSeeder extends Seeder
             $airportId = DB::table('airports')
                 ->where('name', $airport['name'])
                 ->value('id');
-            
+
             if (isset($airport['airlines'])) {
                 foreach ($airport['airlines'] as $airlineId) {
                     DB::table('airport_airline')->updateOrInsert(
