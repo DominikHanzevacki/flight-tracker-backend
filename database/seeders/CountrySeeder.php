@@ -10,6 +10,7 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         $countries = [
+            ['code' => 'CRO', 'name' => 'Croatia'],
             ['code' => 'USA', 'name' => 'United States'],
             ['code' => 'GBR', 'name' => 'United Kingdom'],
             ['code' => 'FRA', 'name' => 'France'],
